@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome - Employee Payroll Management{% endblock %}
+
+{% block content %}
+    <section class="landing-section">
+        <h2 class="landing-title">Welcome to the Employee Payroll Management System</h2>
+        <p class="landing-description">Manage your employee data, payroll, and more with ease.</p>
+        <a href="{{ url_for('auth.login') }}" class="btn-primary">Login</a>
+    </section>
+{% endblock %}

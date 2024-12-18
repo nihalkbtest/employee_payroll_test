@@ -1,0 +1,46 @@
+employee_payroll_management/
+|
+|-- app.py                    # Main Flask app file
+|-- config.py                 # Configuration file for database and app settings
+|-- requirements.txt          # Python dependencies
+|
+|-- /templates                # HTML templates
+|   |-- base.html             # Common base template
+|   |-- login.html            # Login page
+|   |-- admin_dashboard.html  # Admin dashboard
+|   |-- employee_dashboard.html # Employee dashboard
+|   |-- employee_list.html    # Admin page to manage employees
+|
+|-- /static                   # Static files (CSS, JS, images)
+|   |-- /css
+|       |-- style.css         # General styling
+|-- /models                   # Database models
+|   |-- __init__.py           # Models init
+|   |-- user.py               # User model (Admin/Employee)
+|   |-- payroll.py            # Payroll model
+|   |-- employee.py           # Employee model
+|   |-- department.py         # Department model
+|   |-- account_details.py    # Account details model
+|   |-- attendance.py         # Attendance model
+|   |-- project.py            # Project model
+|   |-- education.py          # Education model
+|   |-- leave.py              # Leave management model
+|
+|-- /routes                   # Blueprint routes
+|   |-- __init__.py           # Routes init
+|   |-- auth.py               # Authentication routes
+|   |-- admin.py              # Admin routes
+|   |-- employee.py           # Employee routes
+|
+|-- /services                 # Services (business logic)
+|   |-- payroll_service.py    # Payroll management logic
+|   |-- user_service.py       # User management logic
+|
+|-- /migrations               # Database migrations (Flask-Migrate)
+|
+|-- /db                      
+|   |-- db_setup.py           # Database connection setup
+|
+|-- /utils                    # Utility functions
+|   |-- decorators.py         # Role-based access control decorators
+|-- run.py                    # Entry point for running the app

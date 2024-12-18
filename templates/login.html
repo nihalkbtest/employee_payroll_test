@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - Employee Payroll Management{% endblock %}
+
+{% block content %}
+    <section class="auth-section">
+        <h2 class="auth-title">Login</h2>
+
+        <form method="POST" class="auth-form">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" id="username" name="username" class="form-input" required>
+
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="password" name="password" class="form-input" required>
+
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+    </section>
+{% endblock %}

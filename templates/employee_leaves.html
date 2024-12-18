@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}View Leaves{% endblock %}
+
+{% block content %}
+    <section class="leaves-section">
+        <h2 class="section-title">Leave Records</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Reason</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for leave in leaves %}
+                    <tr>
+                        <td>{{ leave.start_date }}</td>
+                        <td>{{ leave.end_date }}</td>
+                        <td>{{ leave.reason }}</td>
+                        <td>{{ leave.status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

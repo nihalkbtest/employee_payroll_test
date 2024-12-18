@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}View Education{% endblock %}
+
+{% block content %}
+    <section class="education-section">
+        <h2 class="section-title">Education Details</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Degree</th>
+                    <th>Institution</th>
+                    <th>Year of Completion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for edu in education %}
+                    <tr>
+                        <td>{{ edu.degree }}</td>
+                        <td>{{ edu.institution }}</td>
+                        <td>{{ edu.year_of_completion }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Departments{% endblock %}
+
+{% block content %}
+    <section class="manage-section">
+        <h2 class="section-title">Manage Departments</h2>
+
+        <form method="POST" class="form">
+            <label for="name" class="form-label">Department Name</label>
+            <input type="text" id="name" name="name" class="form-input" required>
+
+            <label for="description" class="form-label">Department Description</label>
+            <textarea id="description" name="description" class="form-input" required></textarea>
+
+            <button type="submit" class="submit-btn">Add Department</button>
+        </form>
+
+        <h3 class="section-title">Existing Departments</h3>
+        <ul class="department-list">
+            {% for department in departments %}
+                <li class="department-item">
+                    <span>{{ department.name }} - {{ department.description }}</span>
+                    <form action="{{ url_for('admin.delete_department', id=department.id) }}" method="POST" class="delete-form">
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

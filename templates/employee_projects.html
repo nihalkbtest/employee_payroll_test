@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}View Projects{% endblock %}
+
+{% block content %}
+    <section class="projects-section">
+        <h2 class="section-title">Assigned Projects</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Description</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in projects %}
+                    <tr>
+                        <td>{{ project.name }}</td>
+                        <td>{{ project.description }}</td>
+                        <td>{{ project.start_date }}</td>
+                        <td>{{ project.end_date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

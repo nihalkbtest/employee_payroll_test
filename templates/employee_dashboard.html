@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Employee Dashboard{% endblock %}
+
+{% block content %}
+    <section class="dashboard-section">
+        <h2 class="dashboard-title">Welcome, {{ employee.name }}!</h2>
+
+        <div class="dashboard-cards">
+            <div class="card">
+                <h3 class="card-title">Attendance</h3>
+                <p class="card-count">{{ attendance|length }}</p>
+                <a href="{{ url_for('employee.view_attendance') }}" class="btn-primary">View Attendance</a>
+            </div>
+            <div class="card">
+                <h3 class="card-title">Projects</h3>
+                <p class="card-count">{{ projects|length }}</p>
+                <a href="{{ url_for('employee.view_projects') }}" class="btn-primary">View Projects</a>
+            </div>
+            <div class="card">
+                <h3 class="card-title">Leaves</h3>
+                <p class="card-count">{{ leaves|length }}</p>
+                <a href="{{ url_for('employee.view_leaves') }}" class="btn-primary">View Leaves</a>
+            </div>
+            <div class="card">
+                <h3 class="card-title">Education</h3>
+                <p class="card-count">{{ education|length }}</p>
+                <a href="{{ url_for('employee.view_education') }}" class="btn-primary">View Education</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Attendance{% endblock %}
+
+{% block content %}
+    <section class="attendance-section">
+        <h2 class="section-title">Manage Attendance</h2>
+
+        <form method="POST" class="form">
+            <label for="employee_id" class="form-label">Employee</label>
+            <select id="employee_id" name="employee_id" class="form-select" required>
+                {% for employee in employees %}
+                    <option value="{{ employee.id }}">{{ employee.name }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="status" class="form-label">Status</label>
+            <select id="status" name="status" class="form-select" required>
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+                <option value="On Leave">On Leave</option>
+            </select>
+
+            <button type="submit" class="submit-btn">Record Attendance</button>
+        </form>
+
+        <h3 class="section-title">Attendance Records</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in attendance %}
+                    <tr>
+                        <td>{{ record.employee.name }}</td>
+                        <td>{{ record.status }}</td>
+                        <td>{{ record.date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

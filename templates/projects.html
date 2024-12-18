@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Projects{% endblock %}
+
+{% block content %}
+    <section class="projects-section">
+        <h2 class="section-title">Manage Projects</h2>
+
+        <form method="POST" class="form">
+            <label for="name" class="form-label">Project Name</label>
+            <input type="text" id="name" name="name" class="form-input" required>
+
+            <label for="description" class="form-label">Project Description</label>
+            <textarea id="description" name="description" class="form-input" required></textarea>
+
+            <label for="start_date" class="form-label">Start Date</label>
+            <input type="date" id="start_date" name="start_date" class="form-input" required>
+
+            <label for="end_date" class="form-label">End Date</label>
+            <input type="date" id="end_date" name="end_date" class="form-input" required>
+
+            <label for="employee_id" class="form-label">Assigned Employee</label>
+            <select id="employee_id" name="employee_id" class="form-select" required>
+                {% for employee in employees %}
+                    <option value="{{ employee.id }}">{{ employee.name }}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit" class="submit-btn">Assign Project</button>
+        </form>
+
+        <h3 class="section-title">Existing Projects</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Project</th>
+                    <th>Assigned Employee</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in projects %}
+                    <tr>
+                        <td>{{ project.name }}</td>
+                        <td>{{ project.employee.name }}</td>
+                        <td>{{ project.start_date }}</td>
+                        <td>{{ project.end_date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+{% endblock %}
